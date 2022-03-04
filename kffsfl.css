@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #191919;
+    color: white;
+    font-family: 'DM Mono', monospace;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Yeseva One', cursive;
+    background: linear-gradient(90deg, #b88746,#FDF5A6);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+a {
+    font-size: 24px;
+    color: #b88746;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+a:hover {
+    color: white;
+}
+
+h1 img {
+    height: 55px;
+  }
+
+
+/* !!!!!!!!!!!!!!!!! TOP SECTION !!!!!!!!!!!!!!!!! */
+
+.wrapper{
+    display:grid;
+    grid-gap:20px;
+    padding: 3rem;
+    grid-template-areas:
+    "top"
+    "left"
+    "bottom";
+}
+
+@media (min-width: 600px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        "left top"
+        "left bottom";
+    }
+}
+
+@media (min-width: 800px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+        "left top bottom";
+    }
+}
+
+.index {
+    grid-area: left;
+}
+
+.current-champion {
+    grid-area: top;
+    text-align: center;
+}
+.current-champion h2 {
+    padding-top: 30px;
+}
+
+.current-champion img {
+        border-radius: 16px;
+        height: 160px;
+        margin-top: 1cm;
+}
+
+.links {
+    grid-area: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links p {
+    padding: 20px;
+}
+
+.index-list {
+    padding-left: 35px;
+}
+
+.wrapper > div{
+    background: #201e20;
+    padding:1em;
+    border-radius: 16px;
+    border: solid 1px #b88746;
+}
+
+#past-managers {
+    color: #7a7a8c;
+}
+
+/* !!!!!!!!!!!!!!!!! BOTTOM SECTION !!!!!!!!!!!!!!!!! */
+
+.card-list {
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+}
+
+.card-list::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.card-list::-webkit-scrollbar-thumb {
+    background: #201c29;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+}
+
+.card-list::-webkit-scrollbar-track {
+    background: linear-gradient(90deg,#201c29,#201c29 1px,#17141d 0,#17141d);
+}
+
+
+.card {
+    height: auto;
+    width: 600px;
+    min-width: 300px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: #201e20;
+    box-shadow: -1rem 0 3rem #000;
+    display: flex;
+    flex-direction: column;
+    transition: .2s;
+    margin: 0;
+    scroll-snap-align: start;
+    clear: both;
+    position: relative;
+}
+
+.champions {
+    min-height: 130px;
+    border-style: solid;
+    border-color: #b88746;
+    border-width: 1px;
+    border-radius: 16px;
+    padding: 1em;
+}
+
+.runners-up {
+    padding: 1em;
+}
+
+.losers {
+    padding: 0 1em 1em;
+    color: #7a7a8c;
+}
+
+.card:focus-within~.card, .card:hover~.card {
+    transform: translateX(130px);
+}
+
+.card:hover {
+    transform: translateY(-1rem);
+}
+
+.card:not(:first-child) {
+    margin-left: -130px;
+}
+
+
+.card-header {
+    margin-bottom: auto;
+}
+
+.card-header p {
+    font-size: 14px;
+    margin: 0 0 1rem;
+    color: #7a7a8c;
+
+}
+
+.card-header h2 {
+    font-size: 18px;
+    margin: .25rem 0 auto;
+    text-decoration: none;
+    color: inherit;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    padding-bottom: 1em;
+}
+
+.card-header h2:hover {
+    background: linear-gradient(90deg,#b88746,#FDF5A6);
+    text-shadow: none;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
