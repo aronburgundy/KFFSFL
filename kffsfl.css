@@ -10,12 +10,31 @@ body {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 30px;
   text-align: center;
   font-family: "Yeseva One", cursive;
   background: linear-gradient(90deg, #b88746, #fdf5a6);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+
+h1 img {
+  height: 20px;
+}
+
+@media (min-width: 700px) {
+  h1 {
+    font-size: 60px;
+    text-align: center;
+    font-family: "Yeseva One", cursive;
+    background: linear-gradient(90deg, #b88746, #fdf5a6);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  h1 img {
+    height: 50px;
+  }
 }
 
 a {
@@ -28,16 +47,13 @@ a:hover {
   color: white;
 }
 
-h1 img {
-  height: 55px;
-}
-
 /* !!!!!!!!!!!!!!!!! TOP SECTION !!!!!!!!!!!!!!!!! */
 
 .wrapper {
   display: grid;
   grid-gap: 20px;
-  padding: 3rem;
+  /* padding: 3rem; */
+  padding: 1rem;
   grid-template-areas:
     "top"
     "left"
@@ -46,6 +62,7 @@ h1 img {
 
 @media (min-width: 700px) {
   .wrapper {
+    padding: 3rem;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "left top"
@@ -100,7 +117,7 @@ td {
 }
 .current-champion h2 {
   padding-top: 30px;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .current-champion img {
