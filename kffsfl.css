@@ -1,99 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
 
+:root {
+	--dark: #191919;
+  --matt: #201c29;
+  --lgray: #7a7a8c;
+	--lyellow: #fdf5a6;
+	--orange: #b88746;
+}
+
 body {
   padding: 0;
   margin: 0;
-  background-color: #191919;
+  background-color: var(--dark);
   color: white;
   font-family: "DM Mono", monospace;
 }
 
-h1 {
-  font-size: 30px;
-  text-align: center;
-  font-family: "Yeseva One", cursive;
-  background: linear-gradient(90deg, #b88746, #fdf5a6);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+/* !!!!!!!!!!!!!!!!! HEADER !!!!!!!!!!!!!!!!! */
+
+.header {
+  background-color: var(--orange);
+  display: flex;
+  align-items: normal;
+  justify-content: center;
+  padding: .5rem;
+  gap: 1.5rem;
 }
 
-h1 img {
-  height: 20px;
-}
-
-@media (min-width: 700px) {
-  h1 {
-    font-size: 60px;
-    text-align: center;
-    font-family: "Yeseva One", cursive;
-    background: linear-gradient(90deg, #b88746, #fdf5a6);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-
-  h1 img {
-    height: 50px;
-  }
-}
-
-a {
-  font-size: 24px;
-  color: #b88746;
+.link {
+  vertical-align: top;
+  background: none;
+  border: none;
   text-decoration: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
 }
 
-a:hover {
-  color: white;
+.dropdown.active > .link,
+.link:hover {
+  color: black;
 }
 
-/* !!!!!!!!!!!!!!!!! TOP SECTION !!!!!!!!!!!!!!!!! */
-
-.wrapper {
-  display: grid;
-  grid-gap: 20px;
-  /* padding: 3rem; */
-  padding: 1rem;
-  grid-template-areas:
-    "top"
-    "left"
-    "bottom";
+.dropdown {
+  position: relative;
+  display: inline;
 }
 
-@media (min-width: 700px) {
-  .wrapper {
-    padding: 3rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "left top"
-      "left bottom";
-  }
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + .25rem);
+  background-color: white;
+  padding: .75rem;
+  border-radius: .25rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 350ms ease-in-out, transform 350ms ease-in-out;
 }
 
-@media (min-width: 1000px) {
-  .wrapper {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: "left top bottom";
-  }
+.dropdown.active > .link + .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-.index {
-  grid-area: left;
+.managers {
+  /* padding: 1em; */
+  /* margin: 2rem 4rem; */
+  /* min-width: 50%; */
 }
 
-.index-list {
-  padding-left: 35px;
-  width: 100%;
-  max-width: 400px;
+.manager-list {
+  width: 17rem;
   margin: 0 auto;
   display: block;
   overflow-x: auto;
-  color: #b88746;
+  color: var(--orange);
 }
 
 table {
   width: 100%;
-  max-width: 400px;
   margin: 0 auto;
   display: block;
   overflow-x: auto;
@@ -102,46 +94,96 @@ table {
 
 th,
 td {
-  padding: 5px 10px;
+  padding: 5px 20px 5px 5px;
   border-top-width: 0;
   border-left-width: 0;
 }
 
 #past-managers {
-  color: #7a7a8c;
+  color: var(--lgray);
+}
+
+.title {
+  padding: 2rem 0;
+}
+
+.title h1 {
+  font-size: 60px;
+  text-align: center;
+  font-family: "Yeseva One", cursive;
+  background: linear-gradient(90deg, var(--orange), var(--lyellow));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.title h1 img {
+  height: 50px;
+}
+
+@media (max-width: 1000px) {
+  .title h1 {
+    font-size: 45px;
+  }
+
+  .title h1 img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .title h1 {
+    font-size: 30px;
+  }
+
+  .title h1 img {
+    height: 25px;
+  }
+}
+
+/* !!!!!!!!!!!!!!!!! MIDDLE SECTION !!!!!!!!!!!!!!!!! */
+
+.middle {
+  display: flex;
 }
 
 .current-champion {
-  grid-area: top;
   text-align: center;
+  background: #201e20;
+  padding: 2rem;
+  border-radius: 16px;
+  border: solid 1px var(--orange);
+  margin: 2rem auto 4rem;
+  min-width: 40%;
 }
+
 .current-champion h2 {
-  padding-top: 30px;
   font-size: 50px;
+}
+
+@media (max-width: 700px) {
+  .current-champion {
+    padding: 2em;
+    margin: 1rem auto 2rem;
+    min-width: 80%;
+  }
+
+  .current-champion h2 {
+    font-size: 35px;
+  }
+}
+
+.current-champion h2:hover {
+  background: linear-gradient(90deg, var(--orange), var(--lyellow));
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .current-champion img {
   border-radius: 16px;
   height: 160px;
   margin-top: 1cm;
-}
-
-.links {
-  grid-area: bottom;
-  display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
-}
-
-.links p {
-  padding: 0 35px 20px;
-}
-
-.wrapper > div {
-  background: #201e20;
-  padding: 1em;
-  border-radius: 16px;
-  border: solid 1px #b88746;
 }
 
 /* !!!!!!!!!!!!!!!!! BOTTOM SECTION !!!!!!!!!!!!!!!!! */
@@ -159,7 +201,7 @@ td {
 .champions {
   min-height: 130px;
   border-style: solid;
-  border-color: #b88746;
+  border-color: var(--orange);
   border-width: 1px;
   border-radius: 16px;
   padding: 1em;
@@ -171,7 +213,7 @@ td {
 
 .losers {
   padding: 0 1em 1em;
-  color: #7a7a8c;
+  color: var(--lgray);
 }
 
 .card-header {
@@ -181,7 +223,7 @@ td {
 .card-header p {
   font-size: 14px;
   margin: 0 0 1rem;
-  color: #7a7a8c;
+  color: var(--lgray);
 }
 
 .card-header h2 {
@@ -196,7 +238,7 @@ td {
 }
 
 .card-header h2:hover {
-  background: linear-gradient(90deg, #b88746, #fdf5a6);
+  background: linear-gradient(90deg, var(--orange), var(--lyellow));
   text-shadow: none;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -215,7 +257,7 @@ td {
     height: 10px;
   }
   .card-list::-webkit-scrollbar-thumb {
-    background: #201c29;
+    background: var(--matt);
     border-radius: 10px;
     box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
       inset -2px -2px 2px rgba(0, 0, 0, 0.25);
