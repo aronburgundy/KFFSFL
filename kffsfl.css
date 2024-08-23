@@ -22,11 +22,14 @@ body {
 .header {
   background-color: var(--orange);
   display: flex;
+  flex-wrap: wrap;
   align-items: normal;
   justify-content: center;
   padding: .5rem;
   gap: 1.5rem;
 }
+
+
 
 .link {
   vertical-align: top;
@@ -68,12 +71,6 @@ body {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.managers {
-  /* padding: 1em; */
-  /* margin: 2rem 4rem; */
-  /* min-width: 50%; */
 }
 
 .manager-list {
@@ -153,7 +150,7 @@ td {
   border-radius: 16px;
   border: solid 1px var(--orange);
   margin: 2rem auto 4rem;
-  min-width: 40%;
+  min-width: 30%;
 }
 
 .current-champion h2 {
