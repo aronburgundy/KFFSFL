@@ -261,7 +261,20 @@ td { padding: 5px 20px 5px 5px; border-width: 0; }
 }
 
 @media (max-width: 540px) {
-  .header { column-gap: 1rem; }
+  .header {
+    justify-content: flex-start;
+    column-gap: 1rem;
+  }
+
+  .dropdown-menu {
+    left: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  .dropdown.active > .link + .dropdown-menu {
+    transform: translateY(0);
+  }
+
   .current-champion img { width: min(100%, 22rem); }
   .card-list { grid-template-columns: 1fr; width: min(100% - 2rem, 32rem); }
 }
