@@ -159,19 +159,22 @@
   function renderTotals(stats) {
     ["current", "retired"].forEach((group) => {
       const target = document.getElementById(`${group}-manager-totals`);
-      history.managers.filter((manager) => manager.group === group).forEach((manager) => {
-        const row = document.createElement("tr");
-        const name = document.createElement("td");
-        const total = document.createElement("td");
-        const managerStats = stats.get(manager.id);
+      history.managers
+        .filter((manager) => manager.group === group)
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach((manager) => {
+          const row = document.createElement("tr");
+          const name = document.createElement("td");
+          const total = document.createElement("td");
+          const managerStats = stats.get(manager.id);
 
-        name.textContent = manager.name;
-        total.textContent = managerStats.championships > 0
-          ? `${managerStats.seasons} (${managerStats.championships})`
-          : managerStats.seasons;
-        row.append(name, total);
-        target.append(row);
-      });
+          name.textContent = manager.name;
+          total.textContent = managerStats.championships > 0
+            ? `${managerStats.seasons} (${managerStats.championships})`
+            : managerStats.seasons;
+          row.append(name, total);
+          target.append(row);
+        });
     });
   }
 

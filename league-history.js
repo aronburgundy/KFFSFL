@@ -27,7 +27,7 @@ window.KFFSFL_HISTORY = {
     {
       year: 2025,
       standings: [
-        { place: 1, team: "Macro Penix", managerIds: ["stephen"], image: "images/stephen.jpeg" },
+        { place: 1, team: "Macro Penix", managerIds: ["stephen"], image: "images/stephen.webp" },
         { place: 2, team: "The Chumps", managerIds: ["michael"] },
         { place: 3, team: "London's Bridge", managerIds: ["brandon"] },
         { place: 4, managerIds: ["aron"] },
